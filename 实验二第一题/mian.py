@@ -20,34 +20,37 @@ print(" 球的表面积为：%.4f"%(4*math.pi*radius*radius),'\n',"球的体积�
 """
 #第四题
 """
-name=input()
+name=input("请输入姓名：")
 print("姓名：",name)
 """
 #第五题
 """
-age=int(input())
+age=int(input(“请输入年龄：”))
 print(age+2)
 """
 #第六题
 """
-name=input()
-age=int(input())
+name=input(“请输入姓名：”)
+age=int(input("请输入年龄："))
 print("哇塞，",name,"今年",age,"岁",sep='')
 """
 #第七题
 """
-number=int(input())
+number=int(input("请输入一个数："))
 number1=int((number%10))*100+int(((number/10)%10))*10+int(number/100)
 print(number1)
 """
 #第八题
 """
 import math
-x=int(input())
+x=int(input("请输入一个数："))
 print(math.cos(x)*math.cos(x)+math.sin(x)*math.sin(x))
 """
 #第九题
+"""
 import math
 print("x1=",(-2-math.sqrt(2*2-4*(-3)))/2,"x2=",(-2+math.sqrt(2*2-4*(-3)))/2)
+"""
+
 
 
