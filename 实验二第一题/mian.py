@@ -60,6 +60,7 @@ print(list3)
 a='.'.join((list3))
 print(a)
 """
+"""
 a=12
 b=234
 a=a+b
@@ -67,3 +68,33 @@ b=a-b
 a=a-b
 a,b=b,a
 print(a,b)
+"""
+import turtle
+import time
+turtle.setup(1080,1080,0,0)
+turtle.color('red', 'pink')
+turtle.pensize(2)
+turtle.penup()
+turtle.goto(-128,0)
+turtle.pendown()
+turtle.setheading(150)
+turtle.begin_fill()
+turtle.fd(50)
+turtle.circle(50 * -3.75, 45)
+turtle.circle(50 * -1.431, 165)
+turtle.left(120)
+turtle.circle(50 * -1.431, 120)
+turtle.left(120)
+turtle.circle(50* -1.431,120)
+turtle.left(120)
+turtle.circle(50*-1.431,165)
+turtle.circle(50 * -3.75, 45)
+turtle.fd(50)
+turtle.left(-60)
+turtle.fd(50)
+turtle.circle(50*-3.75,40)
+turtle.left(140)
+turtle.circle(50*-3.75,40)
+turtle.fd(50)
+turtle.end_fill()
+time.sleep(10)
