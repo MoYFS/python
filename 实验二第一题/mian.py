@@ -60,4 +60,10 @@ print(list3)
 a='.'.join((list3))
 print(a)
 """
-
+a=12
+b=234
+a=a+b
+b=a-b
+a=a-b
+a,b=b,a
+print(a,b)
