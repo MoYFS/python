@@ -51,6 +51,11 @@ print(math.cos(x)*math.cos(x)+math.sin(x)*math.sin(x))
 import math
 print("x1=",(-2-math.sqrt(2*2-4*(-3)))/2,"x2=",(-2+math.sqrt(2*2-4*(-3)))/2)
 """
-
+list3=['1','2','3','4','5']
+print(list3)
+list3.append("nihao")
+print(list3)
+a='.'.join((list3))
+print(a)
 
 
