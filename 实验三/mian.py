@@ -37,11 +37,15 @@ print(str2)
 '''
 '''
 months ="JanFebMarAprMayJunJulAugSepOctNovDec"
-number=eval(input())
-monthsv=months[number:number+3]
+number=eval(input())*3
+monthsv=months[number-3:number]
 print(monthsv)
 '''
+'''
 money=input("请输入要兑换的人民币币值，以￥结束：")
-money=money.replace('￥','')
-print("{}元人民币可以兑换{}美元")
+money=float(money.replace('￥',''))
+print("{}元人民币可以兑换{:.2f}美元".format(money,money*0.146))
+'''
+
+
 
