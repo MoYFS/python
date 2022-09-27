@@ -52,7 +52,7 @@ dollar=float(dollar.replace('$',''))
 print("{}美元可以兑换人民币{:.2f}元".format(dollar,dollar*6.868))
 '''
 money=input("请输入要兑换的货币币值，可以以¥或$结束：")
-symbol=money[-1];
+symbol=money[-1]
 money=float(money[:-1:1])
 if symbol=='¥':
     print("{}元人民币可以兑换{:.2f}美元".format(money,money*0.146))

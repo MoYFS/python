@@ -59,7 +59,7 @@ while(1):
     elif password.islower() or password.isupper():
         print("密码强度不够，必须包括英文大/小写")
     elif password.isalpha():
-        print("密码强度不够，必须包括英文大/小写")
+        print("密码强度不够，必须包括英文大/小写和数字")
     else:
         print("恭喜你，密码设置成功！！")
         break
