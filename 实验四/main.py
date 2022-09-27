@@ -5,3 +5,15 @@ if number%2==0:
 else:
     print("{}是奇数".format(number))
 '''
+while(1):
+    age=eval(input("输入年龄："))
+    if 0<=age<=1:
+        print("{}岁是婴儿".format(age))
+    elif 1<age<=10:
+        print("{}岁是儿童".format(age))
+    elif 10<age<=18:
+        print("{}岁是青年".format(age))
+    elif 18<age<=120:
+        print("{}岁是成年人".format(age))
+    else:
+        print("不是人")
