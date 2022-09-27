@@ -48,3 +48,13 @@ elif number[1]>=number[2]:
 else:
     print("{}是{}中最大的数".format(number[2],number))
 '''
+while(1):
+    password=input("输入8位密码，必须包含英文大小写和数字的组合：")
+    if len(password)<8:
+        print("密码长度不对，请输入8位")
+    elif password.isdigit():
+        print("密码强度不够，必须包括数字和英文大小写")
+    elif password.islower() or password.isupper():
+        print("密码强度不够，必须包括英文大/小写")
+    else:
+        print("恭喜你，密码设置成功！！")
