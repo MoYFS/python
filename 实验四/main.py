@@ -5,6 +5,8 @@ if number%2==0:
 else:
     print("{}是奇数".format(number))
 '''
+
+'''
 while(1):
     age=eval(input("输入年龄："))
     if 0<=age<=1:
@@ -17,3 +19,12 @@ while(1):
         print("{}岁是成年人".format(age))
     else:
         print("不是人")
+'''
+
+'''
+number=eval(input("输入一个数："))
+if number%7==0 and number%10==3:
+    print("{}同时满足被7整除且最后一位数字为3".format(number))
+else:
+    print("{}不同时满足被7整除且最后一位数字为3".format(number))
+'''
