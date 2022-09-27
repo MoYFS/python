@@ -28,3 +28,8 @@ if number%7==0 and number%10==3:
 else:
     print("{}不同时满足被7整除且最后一位数字为3".format(number))
 '''
+str=input("输入一个字符串")
+if str[::1]==str[::-1]:
+    print("{}是回文".format(str))
+else:
+    print("{}不是回文".format(str))
