@@ -28,8 +28,23 @@ if number%7==0 and number%10==3:
 else:
     print("{}不同时满足被7整除且最后一位数字为3".format(number))
 '''
+
+'''
 str=input("输入一个字符串")
 if str[::1]==str[::-1]:
     print("{}是回文".format(str))
 else:
     print("{}不是回文".format(str))
+'''
+
+'''
+number=input("输入一个正数：")
+if int(number)<0:
+    print("{}不是正数".format(number))
+elif number[0]>=number[1] and number[0]>=number[2]:
+    print("{}是{}中最大的值".format(number[0],number))
+elif number[1]>=number[2]:
+    print("{}是{}中最大的数".format(number[1],number))
+else:
+    print("{}是{}中最大的数".format(number[2],number))
+'''
