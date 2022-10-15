@@ -65,6 +65,8 @@ for cock in range(20):
             print('公鸡: {}只, 母鸡: {}只, 小鸡: {}只' .format(cock, hen, chick))
 '''
 
+
+'''
 import random
 import math
 #data=random.randint(0,100)
@@ -74,3 +76,17 @@ import math
 RND1=random.randint(0,100)
 RND2=random.randint(0,100)
 print("RND1:{},RND2：{}，最大公约数：{}，最小公倍数：{}".format(RND1,RND2,math.gcd(RND1,RND2),(RND1*RND2)/math.gcd(RND1,RND2)))
+'''
+
+'''
+import random
+count=eval(input("输入测试次数（建议大于1000次）："))
+front=reverse=0
+while(count):
+    if random.randint(0,1)==1:
+        front+=1
+    else:
+        reverse+=1
+    count-=1
+print("正面{}次，反面{}次".format(front,reverse))
+'''

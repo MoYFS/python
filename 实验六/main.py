@@ -29,7 +29,7 @@ for x in range(1,301):
 '''
 import random
 degree=eval(input("输入测试次数："))
-cout=0;
+cout=0
 for x in range(degree):
     random.seed(time.time())
     i=random.randint(1,6)
