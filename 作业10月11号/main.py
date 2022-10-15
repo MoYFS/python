@@ -35,3 +35,42 @@ while(1):
         else:
             uneven+=int(temp)
 '''
+
+'''
+StartValue=10
+while(1):
+    if StartValue%5==1 and StartValue%6==5 and StartValue%7==4 and StartValue%11==10:
+        print("韩信一个拥有{}名士兵".format(StartValue))
+        break
+    else:
+        StartValue+=1
+'''
+
+'''
+StratValue=day=1
+while(day<=365):
+    if 0<day%7<=5:
+        StratValue*=1.01
+    else:
+        StratValue*=0.99
+    day+=1
+print("武力值为{:.2f}".format(StratValue))
+'''
+
+'''
+for cock in range(20):
+    for hen in range(33):
+        chick = 100 - cock - hen
+        if 5 * cock + 3 * hen + chick / 3 == 100:
+            print('公鸡: {}只, 母鸡: {}只, 小鸡: {}只' .format(cock, hen, chick))
+'''
+
+import random
+import math
+#data=random.randint(0,100)
+#random.seed(data)
+#print("RND1:{},RND2：{}，最大公约数：{}，最小公倍数：{}".format(data,random.randint(0,100),math.gcd(data,random.randint(0,100)),(data*random.randint(0,100))/math.gcd(data,random.randint(0,100))))
+#以上为单变量实现版本
+RND1=random.randint(0,100)
+RND2=random.randint(0,100)
+print("RND1:{},RND2：{}，最大公约数：{}，最小公倍数：{}".format(RND1,RND2,math.gcd(RND1,RND2),(RND1*RND2)/math.gcd(RND1,RND2)))
