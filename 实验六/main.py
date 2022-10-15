@@ -8,7 +8,6 @@ for i in range(1,number):
 else:
     print("{}是一个素数".format(number))
 '''
-import time
 
 '''
 for i in range(1,10):
@@ -27,6 +26,7 @@ for x in range(1,301):
 '''
 
 '''
+import time
 import random
 degree=eval(input("输入测试次数："))
 cout=0

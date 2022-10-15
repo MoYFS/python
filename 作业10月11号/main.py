@@ -90,3 +90,18 @@ while(count):
     count-=1
 print("正面{}次，反面{}次".format(front,reverse))
 '''
+import random
+target=random.randint(1,100)
+count=0
+while(1):
+    temp=eval(input("输入一个100以内的整数："))
+    if temp>target:
+        count+=1
+        print("遗憾，太大了")
+    elif temp<target:
+        count+=1
+        print("遗憾，太小了")
+    else:
+        count+=1
+        print("预测{}次，你猜中了！".format(count))
+        break
