@@ -8,7 +8,7 @@ for i in range(1,n+1):
     s=s+a*temp
 print(s)
 '''
-cout=0;
+cout=0
 for x in range(101,201):
     for i in range(1,x):
         if x%i==0 and i!=1:
