@@ -50,6 +50,7 @@ print("生成的列表：{}".format(english))
 english.sort(reverse=True)
 print("降序排列：{}".format(english))
 '''
+#第五题
 import random
 lst_who=['我','你','他']
 lst_where=['在宿舍','在教室','在操场']
