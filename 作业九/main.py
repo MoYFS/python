@@ -158,7 +158,7 @@ for x in temp:
         print(str)
 del str
 del temp
-temp=sorted(scores.items(),key=lambda x:x[1][1])
+temp=sorted(scores.items(),key=lambda x:x[1][0])
 print("第三题：")
 for x in temp:
     print(x)
