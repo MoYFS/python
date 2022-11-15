@@ -133,7 +133,15 @@ for x in temp:
 del temp
 '''
 scores = {"Zhang San": [45,60,80], "Li Si": [78,80,90], "Wang Wu": [40,59,60]}
-temp={key:round(sum(scores[key])/len(scores.values()),1) for key in scores}
+temp={"数学":0,"python":0,"英语":0}
+for x in scores.values():
+    temp["数学"]=temp["数学"]+x[0]
+    temp["python"]=temp["python"]+x[1]
+    temp["英语"]=temp["英语"]+x[2]
+temp["数学"]=round(temp["数学"]/len(scores),1)
+temp["python"]=round(temp["python"]/len(scores),1)
+temp["英语"]=round(temp["英语"]/len(scores),1)
+print(temp)
 print("第一题：平均分{}".format(temp))
 print("第二题：")
 m=-1
