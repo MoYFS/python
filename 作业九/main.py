@@ -90,6 +90,8 @@ for x in scores:
         break
 '''
 
+
+'''
 import functools
 scores = {"Zhang San": [45,60,80], "Li Si": [78,80,90], "Wang Wu": [40,59,60]}
 print(scores)
@@ -107,7 +109,8 @@ print("第二题：")
 m=-1
 for x in temp:
     str=x+' '
-    flag=0;m+=1
+    flag=0
+    m+=1
     for i in scores:
         if scores[i][m]<60:
             str=str+i+'、'
@@ -115,13 +118,39 @@ for x in temp:
     str+="不及格"
     if flag==1:
         print(str)
+del str
+del temp
 print("第三题：")
 temp=list(scores.items())
 def require(x,u):
     if x[1][0]>=u[1][0]:
-        return 1
-    else:
         return -1
+    else:
+        return 1
 temp.sort(key=functools.cmp_to_key(require))
+for x in temp:
+    print(x)
+del temp
+'''
+scores = {"Zhang San": [45,60,80], "Li Si": [78,80,90], "Wang Wu": [40,59,60]}
+temp={key:round(sum(scores[key])/len(scores.values()),1) for key in scores}
+print("第一题：平均分{}".format(temp))
+print("第二题：")
+m=-1
+for x in temp:
+    str=x+' '
+    flag=0
+    m+=1
+    for i in scores:
+        if scores[i][m]<60:
+            str=str+i+'、'
+            flag=1
+    str+="不及格"
+    if flag==1:
+        print(str)
+del str
+del temp
+temp=sorted(scores.items(),key=lambda x:x[1][1])
+print("第三题：")
 for x in temp:
     print(x)
