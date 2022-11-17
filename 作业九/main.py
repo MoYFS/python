@@ -135,29 +135,20 @@ del temp
 
 scores = {"Zhang San": [45,60,80], "Li Si": [78,80,90], "Wang Wu": [40,59,60]}
 temp={"数学":0,"python":0,"英语":0}
-for x in scores.values():
-    temp["数学"]+=x[0]
-    temp["python"]+=x[1]
-    temp["英语"]+=x[2]
-temp["数学"]=round(temp["数学"]/len(scores),1)
-temp["python"]=round(temp["python"]/len(scores),1)
-temp["英语"]=round(temp["英语"]/len(scores),1)
-print("第一题：平均分{}".format(temp))
-print("第二题：")
-m=-1
-for x in temp:
+for i,m in zip(range(3),temp):
+    for x in scores.values():
+        temp[m]+=x[i]
+for m in temp:
+    temp[m]=round(temp[m]/len(scores),1)
+print("第一题：平均分{}\n第二题：".format(temp))
+for x,m,i in zip(temp,range(3),scores):
     str=x+' '
-    flag=0
-    m+=1
     for i in scores:
         if scores[i][m]<60:
             str=str+i+'、'
-            flag=1
-    str+="不及格"
-    if flag==1:
-        print(str[:len(str)-4:]+str[-3::])
-del str
-del temp
+    if len(str)>len(x)+1:
+        print(str[:len(str)-1:]+"不及格")
+del str,temp
 temp=sorted(scores.items(),key=lambda x:x[1][0],reverse=False)
 print("第三题：")
 for x in temp:
