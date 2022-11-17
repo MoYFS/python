@@ -135,13 +135,13 @@ del temp
 
 scores = {"Zhang San": [45,60,80], "Li Si": [78,80,90], "Wang Wu": [40,59,60]}
 temp={"数学":0,"python":0,"英语":0}
-for i,m in zip(range(3),temp):
+for i,m in zip(range(len(temp)),temp):
     for x in scores.values():
         temp[m]+=x[i]
 for m in temp:
     temp[m]=round(temp[m]/len(scores),1)
 print("第一题：平均分{}\n第二题：".format(temp))
-for x,m,i in zip(temp,range(3),scores):
+for x,m,i in zip(temp,range(len(temp)),scores):
     str=x+' '
     for i in scores:
         if scores[i][m]<60:
