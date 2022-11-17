@@ -159,7 +159,8 @@ for x in temp:
         print(str[:len(str)-4:]+str[-3::])
 del str
 del temp
-temp=sorted(scores.items(),key=lambda x:x[1][0])
+temp=sorted(scores.items(),key=lambda x:x[1][0],reverse=False)
 print("第三题：")
 for x in temp:
-    print(x)
+    # print(x)
+    print("姓名：{:9} 数学：{} python：{} 英语：{}".format(x[0],x[1][0],x[1][1],x[1][2]))
