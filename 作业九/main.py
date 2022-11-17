@@ -132,6 +132,7 @@ for x in temp:
     print(x)
 del temp
 '''
+
 scores = {"Zhang San": [45,60,80], "Li Si": [78,80,90], "Wang Wu": [40,59,60]}
 temp={"数学":0,"python":0,"英语":0}
 for x in scores.values():
@@ -155,7 +156,7 @@ for x in temp:
             flag=1
     str+="不及格"
     if flag==1:
-        print(str)
+        print(str[:len(str)-4:]+str[-3::])
 del str
 del temp
 temp=sorted(scores.items(),key=lambda x:x[1][0])
