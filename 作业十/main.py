@@ -65,3 +65,27 @@
 #     else:
 #         dicTXL[x].append(dicTXL[x][0])
 # print(dicTXL)
+# dicTXL["大王"][0]=13914000004
+# print(dicTXL)
+# temp=input("请输入要查询的人名：")
+# temp=dicTXL.get(temp,'没有该同学的联系方式')
+# if temp=='没有该同学的联系方式':
+#     print(temp)
+# else:
+#     print("手机：{}\nQQ号：{}\n微信号：{}".format(temp[0],temp[1],temp[2]))
+
+#第七题
+CurVar1={'李雷','张玉','王晓刚','陈红静','方向','司马清'}
+CurVar2={'施然','李芳芳','刘潇','方向','孙一航','黄煌'}
+CurVar3={'陈红静','方向','刘培良','张玉','施小冉','司马清'}
+print("① 这个班有多少位学生没有选课:{}人".format(25-len(CurVar1|CurVar2|CurVar3)))
+print("②有多少位学生同时选修了2门课:{}人".format(len(CurVar1&CurVar2)+\
+                                                 len(CurVar1&CurVar3)+\
+                                                 len(CurVar2&CurVar3)-\
+                                                 2*len(CurVar1&CurVar2&CurVar3)))
+print("③有多少位学生同时选修了3门课:{}人".format(len(CurVar1&CurVar2&CurVar3)))
+print("④有多少位学生只选修了1门课:{}人".format(len(CurVar1|CurVar2|CurVar3)-\
+                                               (len(CurVar1&CurVar2)+\
+                                                len(CurVar1&CurVar3)+\
+                                                len(CurVar2&CurVar3)-\
+                                                len(CurVar1&CurVar2&CurVar3))))
