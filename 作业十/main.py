@@ -1,11 +1,11 @@
 #第一题
-dic_student={}
-for i in range(5):
-    InputData=input("依次输入班级，姓名，年龄，身高和体重")
-    InputData=InputData.split(' ')
-    dic_student[(InputData[0],InputData[1])]=[InputData[2],InputData[3],InputData[4]]
-for x in dic_student.keys():
-    print("{:9}{}".format(x[0]+' '+x[1],dic_student[x][0]+' '+dic_student[x][1]+' '+dic_student[x][2]))
+# dic_student={}
+# for i in range(5):
+#     InputData=input("依次输入班级，姓名，年龄，身高和体重")
+#     InputData=InputData.split(' ')
+#     dic_student[(InputData[0],InputData[1])]=[InputData[2],InputData[3],InputData[4]]
+# for x in dic_student.keys():
+#     print("{:9}{}".format(x[0]+' '+x[1],dic_student[x][0]+' '+dic_student[x][1]+' '+dic_student[x][2]))
 
 #第二题
 # lst_staff=["李梅","张富","付妍","赵诺","刘江"]
