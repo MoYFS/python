@@ -1,5 +1,5 @@
 import turtle
-turtle.setup(840,840)
+turtle.setup(840,840);
 turtle.speed(0)
 colors=["red","blue","green","yellow"]
 turtle.hideturtle()
