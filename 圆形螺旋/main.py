@@ -4,6 +4,6 @@ colors=["red","blue","green","yellow"]
 turtle.hideturtle()
 for i in range(100):
     turtle.pencolor(colors[i%4])
-    turtle.circle(i)
+    turtle.circle(i*2)
     turtle.left(91)
 turtle.done()
