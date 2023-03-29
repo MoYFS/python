@@ -31,7 +31,6 @@ face_cascade=cv2.CascadeClassifier("haarcascades/haarcascade_frontalface_default
 
 #识别标志
 flag=0
-
 start_time = time.time()#记录开始时间
 
 while True:
