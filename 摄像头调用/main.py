@@ -31,6 +31,7 @@ face_cascade=cv2.CascadeClassifier("haarcascades/haarcascade_frontalface_default
 
 #识别标志
 flag=0
+flag1=0
 
 start_time = time.time()#记录开始时间
 
@@ -46,11 +47,13 @@ while True:
         cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
         px,py=x,y
         face_image=image[y:y+h,x:x+w]
-    if flag==0:
+        flag1=1
+    if flag==0 and flag1==1:
         _, img_encode = cv2.imencode('.jpg', face_image)
         img_base64 = base64.b64encode(img_encode.tobytes())
         result = client.search(str(img_base64, 'utf-8'), 'BASE64', 'Student')
         if result['error_code']==0:
+            flag1=0
             group_id=result['result']['user_list'][0]['group_id']
             name=result['result']['user_list'][0]['user_id']
             #name='张家瑞'
@@ -66,6 +69,8 @@ while True:
         elif result['error_code']==222207:
             print("未找到匹配用户")
             flag=1
+    elif flag==0 and flag1==0:
+        print("没有检测到人脸")
     elif flag==1:
         current_time = time.time()# 记录当前时间
         elapsed_time = current_time - start_time #计算经过的时间
