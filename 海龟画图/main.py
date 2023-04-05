@@ -5,7 +5,7 @@ turtle.speed(0)
 turtle.penup()
 turtle.goto(-135,50)
 turtle.pendown()
-turtle.begin_fill();
+turtle.begin_fill()
 #turtle.pencolor("red")
 # for i in range(5):
 #     turtle.forward(300)
