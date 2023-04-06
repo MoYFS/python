@@ -53,8 +53,7 @@ while True:
     if flag==0 and flag1==1:
         _, img_encode = cv2.imencode('.jpg', face_image)
         img_base64 = base64.b64encode(img_encode.tobytes())
-        result = client.search(str(img_base64, 'utf-8'), 'BASE64', 'student')
-        print(result)
+        result = client.search(str(img_base64, 'utf-8'), 'BASE64', 'Student')
         if result['error_code']==0:
             flag1=0
             group_id=result['result']['user_list'][0]['group_id']
@@ -71,7 +70,7 @@ while True:
                     f.write(group_id + "组的" + namelist[name] + "在" + str(datetime.now()) + " 打卡成功\r\n")
         elif result['error_code']==222202:
             print("图片中没有人脸")
-            flag=1
+            flag=0
         elif result['error_code']==222207:
             print("未找到匹配用户")
             flag=0

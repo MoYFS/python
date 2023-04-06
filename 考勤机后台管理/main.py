@@ -186,7 +186,6 @@ class Ui_mainForm(object):
         self.flag1=0    #是否已经检查到人脸
         #标志定义结束
 
-
         #连接信号槽
         self.retranslateUi(mainForm)
         self.tabWidget.setCurrentIndex(3)
@@ -246,8 +245,6 @@ class Ui_mainForm(object):
 
     def takePicture(self):
         self.show=self.image
-        #tempshow=dis_img(self.show)
-        #tempshow=tempshow.scaled(160,120)
         self.flag=1
         self.label_11.setPixmap(QtGui.QPixmap.fromImage(dis_img(self.show).scaled(160,120)))
 
@@ -257,6 +254,7 @@ class Ui_mainForm(object):
         else:
             self.textBrowser.setText("")
         UserGroup=self.comboBox.currentText()
+
 
     def faceRegistration(self):
         EnglishName=self.lineEdit.text()
@@ -294,9 +292,9 @@ class Ui_mainForm(object):
             self.label_13.setText("注册失败")
 
     def faceUpdate(self):
-        EnglishName=self.lineEdit_4.text()
-        ChineseName=self.lineEdit_5.text()
-        UserGroup=self.lineEdit_6.text()
+        EnglishName=self.lineEdit_5.text()
+        ChineseName=self.lineEdit_6.text()
+        UserGroup=self.lineEdit_4.text()
         if not (EnglishName in self.namelist):
             self.label_14.setText('此人无数据')
             return
@@ -311,7 +309,7 @@ class Ui_mainForm(object):
         if len(faces)==0:
             self.label_14.setText("图片无人脸")
             return
-        _, img_encode = cv2.imencode('.jpg', self.face_image)
+        _, img_encode = cv2.imencode('.jpg', self.show)
         img_base64 = base64.b64encode(img_encode.tobytes())
         if self.namelist[EnglishName][2]==UserGroup:
             result=client.updateUser(str(img_base64,'utf-8'),'BASE64',UserGroup,EnglishName)
