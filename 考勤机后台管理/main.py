@@ -202,7 +202,7 @@ class Ui_mainForm(object):
         self.image = cv2.flip(self.image, 1, dst=None)
         #cv2.putText(self.image, str(self.cp.get(cv2.CAP_PROP_FRAME_HEIGHT)) + " " + str(self.cp.get(cv2.CAP_PROP_FRAME_WIDTH)),(0, 24), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255))
         gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
         self.py=-100
         self.px=-100
         self.face_image = self.image
@@ -210,10 +210,11 @@ class Ui_mainForm(object):
         if len(faces)==0:
             self.flag1=0
         for (x, y, h, w) in faces:
-            cv2.rectangle(showimage, (x, y), (x + w, y + h), (0, 255, 0), 2)
-            self.px, self.py = x, y
-            self.flag1=1
-            self.face_image = self.image[y:y + h, x:x + w]
+            if h>=200 and w>=200:
+                cv2.rectangle(showimage, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                self.px, self.py = x, y
+                self.flag1=1
+                self.face_image = self.image[y:y + h, x:x + w]
         self.label_10.setPixmap(QtGui.QPixmap.fromImage(dis_img(showimage).scaled(320,240)))
 
     def retranslateUi(self, mainForm):
@@ -244,7 +245,7 @@ class Ui_mainForm(object):
         self.groupBox_3.setTitle(_translate("mainForm", "照片"))
 
     def takePicture(self):
-        self.show=self.image
+        self.show=self.face_image
         self.flag=1
         self.label_11.setPixmap(QtGui.QPixmap.fromImage(dis_img(self.show).scaled(160,120)))
 
@@ -270,7 +271,7 @@ class Ui_mainForm(object):
             self.label_13.setText('未拍照备份')
             return
         gray = cv2.cvtColor(self.show, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
         if len(faces)==0:
             self.label_13.setText("图片无人脸")
             return
@@ -305,7 +306,7 @@ class Ui_mainForm(object):
             self.label_14.setText('未拍照备份')
             return
         gray = cv2.cvtColor(self.show, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
         if len(faces)==0:
             self.label_14.setText("图片无人脸")
             return

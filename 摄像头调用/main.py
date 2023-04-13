@@ -30,6 +30,8 @@ client = AipFace(APP_ID, API_KEY, SECRET_KEY)
 #开启摄像头
 cp=cv2.VideoCapture(0)
 face_cascade=cv2.CascadeClassifier("haarcascades/haarcascade_frontalface_default.xml")
+#face_cascade=cv2.CascadeClassifier("lbpcascades/lbpcascade_frontalface_improved.xml")
+#face_cascade=cv2.CascadeClassifier("lbpcascades/lbpcascade_frontalface.xml")
 
 #识别标志
 flag=0
@@ -42,14 +44,15 @@ while True:
     image = cv2.flip(image, 1, dst=None)
     cv2.putText(image,str(cp.get(cv2.CAP_PROP_FRAME_HEIGHT))+" "+str(cp.get(cv2.CAP_PROP_FRAME_WIDTH)),(0,24),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255))
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
     face_image=image
     px,py=-100,-100
     for (x,y,h,w) in faces:
-        cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
-        px,py=x,y
-        face_image=image[y:y+h,x:x+w]
-        flag1=1
+        if h>=200 and w>=200:
+            cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
+            px,py=x,y
+            face_image=image[y:y+h,x:x+w]
+            flag1=1
     if flag==0 and flag1==1:
         _, img_encode = cv2.imencode('.jpg', face_image)
         img_base64 = base64.b64encode(img_encode.tobytes())
@@ -62,7 +65,7 @@ while True:
             score=result['result']['user_list'][0]['score']
             #print(result['result']['face_token'])
             flag=1
-            if score>90:
+            if score>95:
                 #print("{}在{}打卡成功!".format(name, datetime.now()))
                 print("{}在{}打卡成功!".format(namelist[name], datetime.now()))
                 with open('打卡日志.txt', 'a+') as f:
