@@ -19,7 +19,25 @@ def chineseText(image,text,px,py):
     cv2_img = cv2.cvtColor(numpy.array(pil_img), cv2.COLOR_RGB2BGR)
     return  cv2_img
 
-namelist={"zjr":"张家瑞"}
+def LoadData():
+    namelist = {}
+    try:
+        userdata = open("D:/pyprojects/考勤机后台管理/userdata.dat", 'r')
+    except:
+        return
+    else:
+        tempdata = userdata.readlines()
+        userdata.close()
+    if tempdata == [] or tempdata[0] == '/n':
+        return
+    for temp in tempdata:
+        temp = temp.split(',')
+        temp[3] = temp[3][:len(temp[3]) - 1]
+        namelist[temp[0]] = [temp[0], temp[1], temp[2], temp[3]]
+    return namelist
+
+namelist={}
+namelist=LoadData()
 
 #连接百度云
 APP_ID='32021966'
@@ -61,16 +79,12 @@ while True:
             flag1=0
             group_id=result['result']['user_list'][0]['group_id']
             name=result['result']['user_list'][0]['user_id']
-            #name='张家瑞'
             score=result['result']['user_list'][0]['score']
-            #print(result['result']['face_token'])
             flag=1
             if score>95:
-                #print("{}在{}打卡成功!".format(name, datetime.now()))
-                print("{}在{}打卡成功!".format(namelist[name], datetime.now()))
+                print("{}在{}打卡成功!".format(namelist[name][1], datetime.now()))
                 with open('打卡日志.txt', 'a+') as f:
-                    #f.write(group_id + "组的" + name + "在" + str(datetime.now()) + " 打卡成功\r\n")
-                    f.write(group_id + "组的" + namelist[name] + "在" + str(datetime.now()) + " 打卡成功\r\n")
+                    f.write(group_id + "组的" + namelist[name][1] + "在" + str(datetime.now()) + " 打卡成功\r\n")
         elif result['error_code']==222202:
             print("图片中没有人脸")
             flag=0
@@ -87,7 +101,7 @@ while True:
             flag=0
             start_time = time.time()# 记录开始时间
         #image=chineseText(image,name,px,py)
-        image=chineseText(image,namelist[name],px,py)
+        image=chineseText(image,namelist[name][1],px,py)
         #cv2.putText(image, name, (px,py), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255))
     cv2.imshow("image", image)
     if (cv2.waitKey(1) & 0xFF)==ord('q'):
