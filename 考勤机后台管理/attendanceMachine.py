@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
 
 
 class Ui_mainForm(object):
@@ -176,11 +177,11 @@ class Ui_mainForm(object):
 
         self.retranslateUi(mainForm)
         self.tabWidget.setCurrentIndex(3)
-        self.pushButton.clicked.connect(mainForm.takePicture) # type: ignore
-        self.pushButton_3.clicked.connect(mainForm.faceRecognition) # type: ignore
-        self.pushButton_2.clicked.connect(mainForm.faceRegistration) # type: ignore
-        self.pushButton_4.clicked.connect(mainForm.faceUpdate) # type: ignore
-        self.pushButton_5.clicked.connect(mainForm.faceDeletion) # type: ignore
+        # self.pushButton.clicked.connect(self.takePicture) # type: ignore
+        # self.pushButton_3.clicked.connect(self.faceRecognition) # type: ignore
+        # self.pushButton_2.clicked.connect(self.faceRegistration) # type: ignore
+        # self.pushButton_4.clicked.connect(self.faceUpdate) # type: ignore
+        # self.pushButton_5.clicked.connect(self.faceDeletion) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(mainForm)
 
     def retranslateUi(self, mainForm):
@@ -209,3 +210,11 @@ class Ui_mainForm(object):
         self.groupBox.setTitle(_translate("mainForm", "摄像头预览"))
         self.groupBox_2.setTitle(_translate("mainForm", "人脸相关操作"))
         self.groupBox_3.setTitle(_translate("mainForm", "照片"))
+
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow =QtWidgets.QMainWindow()
+    ui = Ui_mainForm()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
