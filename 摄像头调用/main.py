@@ -94,15 +94,11 @@ while True:
     elif flag==0 and flag1==0:
         print("没有检测到人脸")
     elif flag==1:
-        #current_time = time.time()# 记录当前时间
-        #elapsed_time = current_time - start_time #计算经过的时间
         elapsed_time=time.time()-start_time
         if elapsed_time >= 10:
             flag=0
             start_time = time.time()# 记录开始时间
-        #image=chineseText(image,name,px,py)
         image=chineseText(image,namelist[name][1],px,py)
-        #cv2.putText(image, name, (px,py), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255))
     cv2.imshow("image", image)
     if (cv2.waitKey(1) & 0xFF)==ord('q'):
         break
