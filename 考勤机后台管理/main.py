@@ -245,9 +245,10 @@ class Ui_mainForm(object):
         self.groupBox_3.setTitle(_translate("mainForm", "照片"))
 
     def takePicture(self):
-        self.show=self.face_image
-        self.flag=1
-        self.label_11.setPixmap(QtGui.QPixmap.fromImage(dis_img(self.show).scaled(160,120)))
+        if self.flag1==1:
+            self.show=self.face_image
+            self.flag=1
+            self.label_11.setPixmap(QtGui.QPixmap.fromImage(dis_img(self.show).scaled(160,120)))
 
     def faceRecognition(self):
         if self.flag1==0:
@@ -270,11 +271,11 @@ class Ui_mainForm(object):
         if self.flag==0:
             self.label_13.setText('未拍照备份')
             return
-        gray = cv2.cvtColor(self.show, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
-        if len(faces)==0:
-            self.label_13.setText("图片无人脸")
-            return
+        # gray = cv2.cvtColor(self.show, cv2.COLOR_BGR2GRAY)
+        # faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
+        # if len(faces)==0:
+        #     self.label_13.setText("图片无人脸")
+        #     return
         res=client.groupAdd(UserGroup)
         _, img_encode = cv2.imencode('.jpg', self.show)
         img_base64 = base64.b64encode(img_encode.tobytes())
@@ -305,11 +306,11 @@ class Ui_mainForm(object):
         if self.flag==0:
             self.label_14.setText('未拍照备份')
             return
-        gray = cv2.cvtColor(self.show, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
-        if len(faces)==0:
-            self.label_14.setText("图片无人脸")
-            return
+        # gray = cv2.cvtColor(self.show, cv2.COLOR_BGR2GRAY)
+        # faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
+        # if len(faces)==0:
+        #     self.label_14.setText("图片无人脸")
+        #     return
         _, img_encode = cv2.imencode('.jpg', self.show)
         img_base64 = base64.b64encode(img_encode.tobytes())
         if self.namelist[EnglishName][2]==UserGroup:
