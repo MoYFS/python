@@ -15,4 +15,8 @@ Label(f2,text="密   码").pack(side=LEFT)
 Entry(f2,show="*").pack(side=LEFT)
 Button(f3,text='登录').pack(side=RIGHT)
 Button(f3,text='取消').pack(side=RIGHT)
+v=StringVar()
+v.set("YES")
+w=Checkbutton(root,text='音乐',variable=v,onvalue="yes",offvalue="no").pack()
+
 root.mainloop()
