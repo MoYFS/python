@@ -22,7 +22,7 @@ def chineseText(image,text,px,py):
 def LoadData():
     namelist = {}
     try:
-        userdata = open("D:/pyprojects/考勤机后台管理/userdata.dat", 'r')
+        userdata = open("D:/PycharmProjects/考勤机后台管理/userdata.dat", 'r')
     except:
         return
     else:

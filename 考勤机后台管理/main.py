@@ -8,7 +8,6 @@ from PIL import ImageFont, ImageDraw, Image
 from datetime import datetime
 import numpy
 
-
 class Ui_mainForm(object):
     #类变量
     def setupUi(self, mainForm):
